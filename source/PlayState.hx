@@ -89,16 +89,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
-		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['Tu parece o leekiz kek', 0.2], //From 0% to 19%
+		['joga no normal e ainda chora', 0.4], //From 20% to 39%
+		['mucho paia', 0.5], //From 40% to 49%
+		['kk ruim', 0.6], //From 50% to 59%
+		['carai', 0.69], //From 60% to 68%
+		['da pro gasto', 0.7], //69%
+		['ta indo bem', 0.8], //From 70% to 79%
+		['melhor do que o leerkiz', 0.9], //From 80% to 89%
+		['yeah boy', 1], //From 90% to 99%
+		['Lacrou mona!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
 	//event variables
@@ -260,6 +260,8 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:BGSprite;
 	var santa:BGSprite;
 	var heyTimer:Float;
+	
+	var white:FlxTiledSprite;
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -779,6 +781,12 @@ class PlayState extends MusicBeatState
 					bg.antialiasing = false;
 					add(bg);
 				}
+				
+			case 'white': //Week Poop
+				var paia:FlxTiledSprite = new FlxTiledSprite('image', 0, 0, 0.9, 0.9);
+				paia.setGraphicSize(Std.int(paia.width * 1.2));
+				paia.updateHitbox();
+				add(paia);
 
 			case 'tank': //Week 7 - Ugh, Guns, Stress
 				var sky:BGSprite = new BGSprite('tankSky', -400, -400, 0, 0);
@@ -1125,7 +1133,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "MODO SERIO (CONFIA)", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -2790,6 +2798,9 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
+			case 'white': //Sortudo
+				paia.scrollX += 1 * 40 * elapsed; //Gaymer
+				paia.scrollY += 1 * 60 * elapsed;
 			case 'tank':
 				moveTank(elapsed);
 			case 'schoolEvil':
@@ -4073,7 +4084,6 @@ class PlayState extends MusicBeatState
 		}
 
 		rating.loadGraphic(Paths.image(pixelShitPart1 + daRating.image + pixelShitPart2));
-		rating.cameras = [camHUD];
 		rating.screenCenter();
 		rating.x = coolText.x - 40;
 		rating.y -= 60;
@@ -4085,7 +4095,6 @@ class PlayState extends MusicBeatState
 		rating.y -= ClientPrefs.comboOffset[1];
 
 		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
-		comboSpr.cameras = [camHUD];
 		comboSpr.screenCenter();
 		comboSpr.x = coolText.x;
 		comboSpr.acceleration.y = FlxG.random.int(200, 300) * playbackRate * playbackRate;
@@ -4097,6 +4106,7 @@ class PlayState extends MusicBeatState
 		comboSpr.velocity.x += FlxG.random.int(1, 10) * playbackRate;
 
 		insert(members.indexOf(strumLineNotes), rating);
+		insert(members.indexOf(strumLineNotes), comboSpr);
 		
 		if (!ClientPrefs.comboStacking)
 		{
@@ -4151,7 +4161,6 @@ class PlayState extends MusicBeatState
 		for (i in seperatedScore)
 		{
 			var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
-			numScore.cameras = [camHUD];
 			numScore.screenCenter();
 			numScore.x = coolText.x + (43 * daLoop) - 90;
 			numScore.y += 80;
