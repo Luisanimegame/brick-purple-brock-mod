@@ -262,7 +262,7 @@ class PlayState extends MusicBeatState
 	var santa:BGSprite;
 	var heyTimer:Float;
 	
-	var white:FlxTiledSprite;
+	var paia:FlxTiledSprite;
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -784,9 +784,11 @@ class PlayState extends MusicBeatState
 				}
 				
 			case 'white': //Week Poop
-				var paia:FlxTiledSprite = new FlxTiledSprite('image', 0, 0, 0.9, 0.9);
-				paia.setGraphicSize(Std.int(paia.width * 1.2));
-				paia.updateHitbox();
+				paia = new FlxTiledSprite(Paths.image('image'), FlxG.width * 3, FlxG.width * 3, true, true);
+				paia.scrollFactor.set(0.9, 0.9);
+				paia.setGraphicSize(Std.int(paia.width * 1.35));
+				paia.x = -100;
+				paia.y = -100;
 				add(paia);
 
 			case 'tank': //Week 7 - Ugh, Guns, Stress
@@ -4378,12 +4380,6 @@ class PlayState extends MusicBeatState
 			});
 
 			if (parsedHoldArray.contains(true) && !endingSong) {
-				#if ACHIEVEMENTS_ALLOWED
-				var achieve:String = checkForAchievement(['oversinging']);
-				if (achieve != null) {
-					startAchievement(achieve);
-				}
-				#end
 			}
 			else if (boyfriend.animation.curAnim != null && boyfriend.holdTimer > Conductor.stepCrochet * (0.0011 / FlxG.sound.music.pitch) * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
 			{
@@ -4829,18 +4825,6 @@ class PlayState extends MusicBeatState
 				limoCorpse.visible = false;
 				limoCorpseTwo.visible = false;
 				limoKillingState = 1;
-
-				#if ACHIEVEMENTS_ALLOWED
-				Achievements.henchmenDeath++;
-				FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
-				var achieve:String = checkForAchievement(['roadkill_enthusiast']);
-				if (achieve != null) {
-					startAchievement(achieve);
-				} else {
-					FlxG.save.flush();
-				}
-				FlxG.log.add('Deaths: ' + Achievements.henchmenDeath);
-				#end
 			}
 		}
 	}
