@@ -1,0 +1,20 @@
+{
+	"songs": [
+		["Poop (GaboMix)", "poop", [156, 51, 47]]
+	],
+
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekBackground": "stage",
+
+	"storyName": "que_bixo_feio",
+	"weekBefore": "tutorial",
+	"weekName": "Week POOP",
+	"startUnlocked": true,
+
+	"hideStoryMode": true,
+	"hideFreeplay": false
+}
