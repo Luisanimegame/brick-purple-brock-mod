@@ -4175,7 +4175,7 @@ class PlayState extends MusicBeatState
 			numScore.velocity.x = FlxG.random.float(-5, 5) * playbackRate;
 			numScore.visible = !ClientPrefs.hideHud;
 
-			//if (combo >= 10 || combo == 0)
+			if (combo >= 10 || combo == 0)
 			if(showComboNum)
 				insert(members.indexOf(strumLineNotes), numScore);
 
@@ -4924,8 +4924,18 @@ class PlayState extends MusicBeatState
 			notes.sort(FlxSort.byY, ClientPrefs.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
 		}
 
-		iconP1.scale.set(1.2, 1.2);
-		iconP2.scale.set(1.2, 1.2);
+		if (curBeat % 1 == 0)
+			{
+				
+				iconP1.scale.set(0.9, 0.9);
+				iconP2.scale.set(1.1, 1.1);
+			}
+		
+		if (curBeat % 2 == 0)
+			{
+				iconP1.scale.set(1.1, 1.1);
+				iconP2.scale.set(0.9, 0.9);
+			}
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
