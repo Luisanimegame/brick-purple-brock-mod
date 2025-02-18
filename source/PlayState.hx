@@ -885,7 +885,7 @@ class PlayState extends MusicBeatState
 
 		// "GLOBAL" SCRIPTS
 		#if LUA_ALLOWED
-		var daScripts:Array<String> = ['script', 'script1', 'script2', 'script3', 'script4']; // I don't think I need to explain this 
+		var daScripts:Array<String> = ['camFollow', 'hud', 'script2', 'script3', 'script4']; // I don't think I need to explain this 
 		for (script in daScripts) {
 			var scriptPath:String = Paths.getPreloadPath('scripts/' + script + '.lua');
 			if (OpenFlAssets.exists(scriptPath))
@@ -2232,9 +2232,9 @@ class PlayState extends MusicBeatState
 
 	public function updateScore(miss:Bool = false)
 	{
-		scoreTxt.text = 'Score: ' + songScore
-		+ ' | Misses: ' + songMisses
-		+ ' | Rating: ' + ratingName
+		scoreTxt.text = 'Pontos: ' + songScore
+		+ ' | Baitolagens: ' + songMisses
+		+ ' | Acc: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
@@ -5146,11 +5146,11 @@ class PlayState extends MusicBeatState
 
 			// Rating FC
 			ratingFC = "";
-			if (sicks > 0) ratingFC = "SFC";
-			if (goods > 0) ratingFC = "GFC";
-			if (bads > 0 || shits > 0) ratingFC = "FC";
-			if (songMisses > 0 && songMisses < 10) ratingFC = "SDCB";
-			else if (songMisses >= 10) ratingFC = "Clear";
+			if (sicks > 0) ratingFC = "LINDEZA";
+			if (goods > 0) ratingFC = "EASY";
+			if (bads > 0 || shits > 0) ratingFC = "MACUMBARIA";
+			if (songMisses > 0 && songMisses < 10) ratingFC = "BAH";
+			else if (songMisses >= 10) ratingFC = "KKRUIM";
 		}
 		updateScore(badHit); // score will only update after rating is calculated, if it's a badHit, it shouldn't bounce -Ghost
 		setOnLuas('rating', ratingPercent);

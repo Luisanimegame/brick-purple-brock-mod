@@ -209,7 +209,7 @@ class FreeplayState extends MusicBeatState
 		add(text);
 		
 		#if mobile
-		addVirtualPad(LEFT_FULL, A_B_C_X_Y);
+		addVirtualPad(LEFT_FULL, A_B);
 		#end
 		
 		super.create();
@@ -280,9 +280,7 @@ class FreeplayState extends MusicBeatState
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
 		var accepted = controls.ACCEPT;
-		var space = FlxG.keys.justPressed.SPACE #if mobile || virtualPad.buttonX.justPressed #end;
-		var ctrl = FlxG.keys.justPressed.CONTROL #if mobile || virtualPad.buttonC.justPressed #end;
-
+		
 		var shiftMult:Int = 1;
 		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
 
@@ -336,40 +334,6 @@ class FreeplayState extends MusicBeatState
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
-		if(ctrl)
-		{
-			#if mobile
-			removeVirtualPad();
-			#end
-			persistentUpdate = false;
-			openSubState(new GameplayChangersSubstate());
-		}
-		else if(space)
-		{
-			if(instPlaying != curSelected)
-			{
-				#if PRELOAD_ALL
-				destroyFreeplayVocals();
-				FlxG.sound.music.volume = 0;
-				Paths.currentModDirectory = songs[curSelected].folder;
-				var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
-				PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
-				if (PlayState.SONG.needsVoices)
-					vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
-				else
-					vocals = new FlxSound();
-
-				FlxG.sound.list.add(vocals);
-				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
-				vocals.play();
-				vocals.persist = true;
-				vocals.looped = true;
-				vocals.volume = 0.7;
-				instPlaying = curSelected;
-				#end
-			}
-		}
-
 		else if (accepted)
 		{
 			persistentUpdate = false;
@@ -404,15 +368,6 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.music.volume = 0;
 					
 			destroyFreeplayVocals();
-		}
-		else if(controls.RESET #if mobile || virtualPad.buttonY.justPressed #end)
-		{
-			#if mobile
-			removeVirtualPad();
-			#end
-			persistentUpdate = false;
-			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
-			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 		super.update(elapsed);
 	}
@@ -475,6 +430,11 @@ class FreeplayState extends MusicBeatState
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
+		#end
+		
+		#if PRELOAD_ALL
+		FlxG.sound.music.volume = 0;
+		FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
 		#end
 
 		var bullShit:Int = 0;
