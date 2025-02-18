@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+-->
+<TextureAtlas imagePath="bf_asets.png" width="2486" height="304">
+  <SubTexture name="Down0000" x="0" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Down0002" x="226" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Left0000" x="452" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Left0002" x="678" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Right0000" x="904" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Right0002" x="1130" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Up0000" x="1356" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Up0002" x="1582" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="death0000" x="1808" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="idle0000" x="2034" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="miss0000" x="2260" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Down0001" x="0" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Left0001" x="452" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Right0001" x="904" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+  <SubTexture name="Up0001" x="1356" y="0"  width="226" height="304" frameX="-221" frameY="-156" frameWidth="640" frameHeight="640"/>
+</TextureAtlas>
