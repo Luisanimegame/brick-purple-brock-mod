@@ -628,7 +628,6 @@ class TitleState extends MusicBeatState
 			switch (sickBeats)
 			{
 				case 1:
-					//FlxG.sound.music.stop();
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
@@ -637,7 +636,6 @@ class TitleState extends MusicBeatState
 					#else
 					createCoolText(['Gabo']);
 					#end
-				// credTextShit.visible = true;
 				case 4:
 					#if PSYCH_WATERMARKS
 					addMoreText('Gabo', 15);
@@ -646,51 +644,62 @@ class TitleState extends MusicBeatState
 					#else
 					addMoreText('apresentam');
 					#end
-				// credTextShit.text += '\npresent...';
-				// credTextShit.addText();
 				case 5:
 					deleteCoolText();
-				// credTextShit.visible = false;
-				// credTextShit.text = 'In association \nwith';
-				// credTextShit.screenCenter();
 				case 6:
 					#if PSYCH_WATERMARKS
-					createCoolText(['sei la oq e isso', 'with'], -40);
+					createCoolText(['sei la oq e isso'], -40);
 					#else
-					createCoolText(['que simples', 'with'], -40);
+					createCoolText(['que simples'], -40);
 					#end
 				case 8:
 					addMoreText('gaymode true', -40);
 					ngSpr.visible = true;
-				// credTextShit.text += '\nNewgrounds';
 				case 9:
 					deleteCoolText();
 					ngSpr.visible = false;
-				// credTextShit.visible = false;
-
-				// credTextShit.text = 'Shoutouts Tom Fulp';
-				// credTextShit.screenCenter();
 				case 10:
 					createCoolText([curWacky[0]]);
-				// credTextShit.visible = true;
 				case 12:
 					addMoreText(curWacky[1]);
-				// credTextShit.text += '\nlmao';
 				case 13:
 					deleteCoolText();
-				// credTextShit.visible = false;
-				// credTextShit.text = "Friday";
-				// credTextShit.screenCenter();
 				case 14:
-					addMoreText('Simples');
-				// credTextShit.visible = true;
+					addMoreText('pensou');
 				case 15:
-					addMoreText('Noite');
-				// credTextShit.text += '\nNight';
+					addMoreText('que ia');
 				case 16:
-					addMoreText('Fankando'); // credTextShit.text += '\nFunkin';
-
+					addMoreText('acabar, bruh man');
 				case 17:
+					deleteCoolText();
+				case 18:
+					createCoolText(['deixa a musica rolar', 'porca'], -40);
+				case 19:
+					deleteCoolText();
+				case 20:
+					createCoolText(['isso ta muito aleatorio'], -40);
+				case 21;
+					addMoreText('isso e paia', 15);
+					addMoreText('I found you faker', 15);
+				case 22:
+					addMoreText('Pietro', 15);
+					addMoreText('Joneras', 15);
+				case 23:
+					deleteCoolText();
+				case 24:
+					createCoolText([curWacky[0]]);
+				case 25:
+					addMoreText(curWacky[1]);
+				case 26:
+					deleteCoolText();
+				case 27:
+					addMoreText('Simples');
+				case 28:
+					addMoreText('Noite');
+				case 29:
+					addMoreText('Fankando');
+
+				case 30:
 					skipIntro();
 			}
 		}
