@@ -4900,7 +4900,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
 		
-		if (curSong == 'poop-(gabomix)') //espero que isso funcione
+		if (curSong == 'poop (gabomix)') //espero que isso funcione
 		{
 		
 		// Zoom e Flash
@@ -5038,6 +5038,8 @@ class PlayState extends MusicBeatState
 		FlxG.camera.flash(FlxColor.WHITE, 2);
 		}
 		}
+		
+		//depressao
 
 		lastStepHit = curStep;
 		setOnLuas('curStep', curStep);
