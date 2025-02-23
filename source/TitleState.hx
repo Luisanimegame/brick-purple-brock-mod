@@ -678,7 +678,7 @@ class TitleState extends MusicBeatState
 					deleteCoolText();
 				case 20:
 					createCoolText(['isso ta muito aleatorio'], -40);
-				case 21;
+				case 21:
 					addMoreText('isso e paia', 15);
 					addMoreText('I found you faker', 15);
 				case 22:
