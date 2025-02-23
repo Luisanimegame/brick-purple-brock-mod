@@ -5012,7 +5012,7 @@ class PlayState extends MusicBeatState
 		defaultCamZoom = 1.45;
 		}
 		
-		if (curStep == 704
+		if (curStep == 704)
 		{
 		defaultCamZoom = 1.25;
 		}
