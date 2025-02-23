@@ -2237,7 +2237,7 @@ class PlayState extends MusicBeatState
 		+ ' | Acc: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 
-		if(ClientPrefs.scoreZoom && !miss)
+		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
 			if(scoreTxtTween != null) {
 				scoreTxtTween.cancel();
@@ -4052,7 +4052,7 @@ class PlayState extends MusicBeatState
 			spawnNoteSplashOnNote(note);
 		}
 
-		if(!practiceMode) {
+		if(!practiceMode && !cpuControlled) {
 			songScore += score;
 			if(!note.ratingDisabled)
 			{
@@ -4175,7 +4175,7 @@ class PlayState extends MusicBeatState
 			numScore.velocity.x = FlxG.random.float(-5, 5) * playbackRate;
 			numScore.visible = !ClientPrefs.hideHud;
 
-			if (combo >= 10 || combo == 0)
+			//if (combo >= 10 || combo == 0)
 			if(showComboNum)
 				insert(members.indexOf(strumLineNotes), numScore);
 
@@ -4899,6 +4899,145 @@ class PlayState extends MusicBeatState
 		if(curStep == lastStepHit) {
 			return;
 		}
+		
+		if (curSong == 'poop-(gabomix)') //espero que isso funcione
+		{
+		
+		// Zoom e Flash
+		if (curStep == 64)
+		{
+		defaultCamZoom = 1.25;
+		}
+		
+		if (curStep == 128)
+		{
+		defaultCamZoom = 0.85;
+		FlxG.camera.flash(FlxColor.WHITE, 2);
+		}
+		
+		if (curStep == 168)
+		{
+		defaultCamZoom = 1.05;
+		}
+		
+		if (curStep == 173)
+		{
+		defaultCamZoom = 0.85;
+		}
+		
+		if (curStep == 240)
+		{
+		defaultCamZoom = 1.15;
+		}
+		
+		if (curStep == 256)
+		{
+		defaultCamZoom = 0.75;
+		}
+		
+		if (curStep == 272)
+		{
+		defaultCamZoom = 0.85;
+		}
+		
+		if (curStep == 288)
+		{
+		defaultCamZoom = 0.95;
+		}
+		
+		if (curStep == 304)
+		{
+		defaultCamZoom = 1.05;
+		}
+		
+		if (curStep == 320)
+		{
+		defaultCamZoom = 0.85;
+		}
+		
+		if (curStep == 368)
+		{
+		defaultCamZoom = 1.25;
+		}
+		
+		if (curStep == 380)
+		{
+		defaultCamZoom = 0.75;
+		}
+		
+		if (curStep == 400)
+		{
+		defaultCamZoom = 0.85;
+		}
+		
+		if (curStep == 480)
+		{
+		defaultCamZoom = 1.15;
+		}
+		
+		if (curStep == 496)
+		{
+		defaultCamZoom = 1.25;
+		}
+		
+		if (curStep == 512)
+		{
+		defaultCamZoom = 1.05;
+		FlxG.camera.flash(FlxColor.WHITE, 2);
+		}
+		
+		if (curStep == 576)
+		{
+		defaultCamZoom = 1.25;
+		}
+		
+		if (curStep == 640)
+		{
+		defaultCamZoom = 1.45;
+		FlxG.camera.flash(FlxColor.WHITE, 2);
+		}
+		
+		if (curStep == 656)
+		{
+		defaultCamZoom = 1.55;
+		}
+		
+		if (curStep == 672)
+		{
+		defaultCamZoom = 1.35;
+		}
+		
+		if (curStep == 688)
+		{
+		defaultCamZoom = 1.45;
+		}
+		
+		if (curStep == 704
+		{
+		defaultCamZoom = 1.25;
+		}
+		
+		if (curStep == 720)
+		{
+		defaultCamZoom = 1.35;
+		}
+		
+		if (curStep == 736)
+		{
+		defaultCamZoom = 1.45;
+		}
+		
+		if (curStep == 752)
+		{
+		defaultCamZoom = 1.55;
+		}
+		
+		if (curStep == 768)
+		{
+		defaultCamZoom = 1.05;
+		FlxG.camera.flash(FlxColor.WHITE, 2);
+		}
+		}
 
 		lastStepHit = curStep;
 		setOnLuas('curStep', curStep);
@@ -4924,18 +5063,8 @@ class PlayState extends MusicBeatState
 			notes.sort(FlxSort.byY, ClientPrefs.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
 		}
 
-		if (curBeat % 1 == 0)
-			{
-				
-				iconP1.scale.set(0.9, 0.9);
-				iconP2.scale.set(1.1, 1.1);
-			}
-		
-		if (curBeat % 2 == 0)
-			{
-				iconP1.scale.set(1.1, 1.1);
-				iconP2.scale.set(0.9, 0.9);
-			}
+		iconP1.scale.set(1.2, 1.2);
+		iconP2.scale.set(1.2, 1.2);
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
