@@ -1,6 +1,8 @@
 {
 	"songs": [
-		["Poop (GaboMix)", "poop", [156, 51, 47]]
+		["Poop (Gabomix)", "poop", [156, 51, 47]],
+		["Poop (Pietromix)", "poop", [156, 51, 47]],
+		["Poop (JPmix)", "poop", [156, 51, 47]]
 	],
 
 	"weekCharacters": [
