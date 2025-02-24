@@ -4973,6 +4973,11 @@ class PlayState extends MusicBeatState
 		defaultCamZoom = 0.75;
 		}
 		
+		if (curStep == 384)
+		{
+		FlxG.camera.flash(FlxColor.WHITE, 1);
+		}
+		
 		if (curStep == 400)
 		{
 		defaultCamZoom = 0.85;
@@ -4991,7 +4996,7 @@ class PlayState extends MusicBeatState
 		if (curStep == 512)
 		{
 		defaultCamZoom = 1.05;
-		FlxG.camera.flash(FlxColor.WHITE, 2);
+		FlxG.camera.flash(FlxColor.WHITE, 1.75);
 		}
 		
 		if (curStep == 576)
@@ -5002,7 +5007,7 @@ class PlayState extends MusicBeatState
 		if (curStep == 640)
 		{
 		defaultCamZoom = 1.45;
-		FlxTween.tween(blackpoop, {alpha: 0.65}, 1.5, {ease: FlxEase.quartInOut});
+		FlxTween.tween(blackpoop, {alpha: 0.65}, 0.95);
 		FlxG.camera.flash(FlxColor.WHITE, 2);
 		}
 		
@@ -5044,7 +5049,7 @@ class PlayState extends MusicBeatState
 		if (curStep == 768)
 		{
 		defaultCamZoom = 1.05;
-		FlxTween.tween(blackpoop, {alpha: 0}, 0.45, {ease: FlxEase.quartInOut});
+		FlxTween.tween(blackpoop, {alpha: 0}, 0.45);
 		}
 		}
 		
