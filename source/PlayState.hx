@@ -263,6 +263,7 @@ class PlayState extends MusicBeatState
 	var heyTimer:Float;
 	
 	var paia:FlxTiledSprite;
+	var blackpoop:FlxSprite;
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -463,6 +464,8 @@ class PlayState extends MusicBeatState
 					curStage = 'schoolEvil';
 				case 'ugh' | 'guns' | 'stress':
 					curStage = 'tank';
+				case 'poop (gabomix)' | 'poop (pietromix)' | 'poop (jgmix)' | 'finalbattle':
+					curStage = 'white';
 				default:
 					curStage = 'stage';
 			}
@@ -787,9 +790,14 @@ class PlayState extends MusicBeatState
 				paia = new FlxTiledSprite(Paths.image('image'), FlxG.width * 3, FlxG.width * 3, true, true);
 				paia.scrollFactor.set(0.9, 0.9);
 				paia.setGraphicSize(Std.int(paia.width * 1.35));
-				paia.x = -100;
-				paia.y = -100;
+				paia.x = -500;
+				paia.y = -300;
 				add(paia);
+				
+				var blackpoop:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+				blackpoop.alpha = 0;
+				blackpoop.scrollFactor.set();
+				add(blackpoop);
 
 			case 'tank': //Week 7 - Ugh, Guns, Stress
 				var sky:BGSprite = new BGSprite('tankSky', -400, -400, 0, 0);
@@ -4994,6 +5002,7 @@ class PlayState extends MusicBeatState
 		if (curStep == 640)
 		{
 		defaultCamZoom = 1.45;
+		FlxTween.tween(blackpoop, {alpha: 0.65}, 1.5, {ease: FlxEase.quartInOut});
 		FlxG.camera.flash(FlxColor.WHITE, 2);
 		}
 		
@@ -5035,7 +5044,7 @@ class PlayState extends MusicBeatState
 		if (curStep == 768)
 		{
 		defaultCamZoom = 1.05;
-		FlxG.camera.flash(FlxColor.WHITE, 2);
+		FlxTween.tween(blackpoop, {alpha: 0}, 0.45, {ease: FlxEase.quartInOut});
 		}
 		}
 		
