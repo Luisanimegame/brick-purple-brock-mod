@@ -5008,8 +5008,10 @@ class PlayState extends MusicBeatState
 		if (curStep == 640)
 		{
 		defaultCamZoom = 1.45;
-		FlxTween.tween(blackpoop, {alpha: 0.65}, 0.95);
 		FlxG.camera.flash(FlxColor.WHITE, 2);
+		
+		// black
+		blackpoop.alpha = 0.65;
 		}
 		
 		if (curStep == 656)
@@ -5050,7 +5052,10 @@ class PlayState extends MusicBeatState
 		if (curStep == 768)
 		{
 		defaultCamZoom = 1.05;
-		FlxTween.tween(blackpoop, {alpha: 0}, 0.45);
+		FlxG.camera.flash(FlxColor.WHITE, 1);
+		
+		// black
+		blackpoop.alpha = 0.65;
 		}
 		}
 		
