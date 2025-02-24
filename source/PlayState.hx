@@ -90,14 +90,14 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['Tu parece o leekiz kek', 0.2], //From 0% to 19%
+		['Tu parece o Leerky kek', 0.2], //From 0% to 19%
 		['joga no normal e ainda chora', 0.4], //From 20% to 39%
 		['mucho paia', 0.5], //From 40% to 49%
 		['kk ruim', 0.6], //From 50% to 59%
 		['carai', 0.69], //From 60% to 68%
 		['da pro gasto', 0.7], //69%
 		['ta indo bem', 0.8], //From 70% to 79%
-		['melhor do que o leerkiz', 0.9], //From 80% to 89%
+		['melhor do que o Leerky', 0.9], //From 80% to 89%
 		['yeah boy', 1], //From 90% to 99%
 		['Lacrou mona!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
@@ -263,7 +263,7 @@ class PlayState extends MusicBeatState
 	var heyTimer:Float;
 	
 	var paia:FlxTiledSprite;
-	var blackpoop:FlxSprite;
+	var blackpoop:BGSprite;
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -794,9 +794,10 @@ class PlayState extends MusicBeatState
 				paia.y = -300;
 				add(paia);
 				
-				var blackpoop:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+				var blackpoop:BGSprite = new BGSprite('black', -500, -300, 0.2, 0.2);
+				blackpoop.setGraphicSize(Std.int(blackpoop.width * 1.25));
 				blackpoop.alpha = 0;
-				blackpoop.scrollFactor.set();
+				blackpoop.updateHitbox();
 				add(blackpoop);
 
 			case 'tank': //Week 7 - Ugh, Guns, Stress
